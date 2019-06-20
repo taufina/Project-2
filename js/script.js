@@ -71,7 +71,7 @@ const appendPageLinks = (listItem) => {
    divElement.className = 'pagination';
    pageClass.appendChild(divElement);
    divElement.appendChild(ulElement);
-   let numberOfPages = Math.ceil(listItem.length/10);
+   let numberOfPages = Math.ceil(listItem.length/numberOfItems);
 
    for (let i = 1; i<=numberOfPages; i++){
       let liElement = document.createElement('li');
@@ -80,7 +80,22 @@ const appendPageLinks = (listItem) => {
       liElement.appendChild(aTag).setAttribute("href", '#');
       aTag.innerHTML = i;
 
+      aTag.addEventListener('click',(event)=>{
+         let page = document.querySelectorAll('li a');
+         let button = event.target.textContent;
+         showPage(listItem, button);
+
+         event.target.className = "active";
+
+         for(i=0, i<)
+      })
+
+      
+
    }
+
+
+  
 
    // Next up we call the slice function of our Array and tell it where to start slicing from and where to 
    // end. The result will be an Array with just the elements that we're currently looking for. The 
